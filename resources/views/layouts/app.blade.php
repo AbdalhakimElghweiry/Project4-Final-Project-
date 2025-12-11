@@ -43,6 +43,15 @@
                     </li>
 
                     <li class="nav-item">
+                        <a
+                            class="nav-link {{ request()->routeIs('students.*') ? 'active' : '' }}"
+                            href="{{ route('students.index') }}"
+                        >
+                            Students
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a 
                             class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" 
                             href="{{ route('home.about') }}"

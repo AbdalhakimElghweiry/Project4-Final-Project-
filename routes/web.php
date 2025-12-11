@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\professorController;
 use App\Http\Controllers\Admin\studentController;
 use App\Http\Controllers\Auth\authController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\StudentController as FrontStudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -73,3 +74,6 @@ Route::get('/contact', [homeController::class,'contact'])->name('home.contact');
 
 Route::get('/adminLogin', [authController::class,'adminLogin'])->name('admin.login');
 Route::post('/adminLogin', [authController::class,'adminCheckLogin'])->name('admin.adminCheckLogin');
+
+// Student 2 - Students CRUD (plural) to avoid conflict with existing admin routes
+Route::resource('students', FrontStudentController::class);
