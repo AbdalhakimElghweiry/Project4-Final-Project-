@@ -2,13 +2,14 @@
 
 use App\Http\Controllers\Admin\courseController;
 use App\Http\Controllers\Admin\dashboardcontroller;
-use App\Http\Controllers\Admin\departmentController;
+use App\Http\Controllers\Admin\departmentController as AdminDepartmentController;
 use App\Http\Controllers\Admin\enrollmentController;
 use App\Http\Controllers\Admin\professorController;
 use App\Http\Controllers\Admin\studentController;
 use App\Http\Controllers\Auth\authController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\StudentController as FrontStudentController;
+use App\Http\Controllers\DepartmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -46,7 +47,7 @@ Route::resource('professor', professorController::class)->names([
 ]);
 
 
-Route::resource('department', departmentController::class)->names([
+Route::resource('department', DepartmentController::class)->names([
     'index'=>'department.index',
     'show'=>'department.show',
     'create'=>'department.create',
