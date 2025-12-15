@@ -61,6 +61,24 @@
                     </li>
 
                     <li class="nav-item">
+                        <a
+                            class="nav-link {{ request()->routeIs('professors.*') ? 'active' : '' }}"
+                            href="{{ route('professors.index') }}"
+                        >
+                            Professors
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link {{ request()->routeIs('enrollments.*') ? 'active' : '' }}"
+                            href="{{ route('enrollments.index') }}"
+                        >
+                            Enrollments
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a 
                             class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" 
                             href="{{ route('home.about') }}"

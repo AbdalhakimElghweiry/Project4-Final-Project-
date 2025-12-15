@@ -34,7 +34,12 @@
 
                 <div class="mb-3">
                     <label class="form-label">Department</label>
-                    <input type="text" name="department" class="form-control" value="{{ old('department', $student->department) }}" required>
+                    <select name="department" class="form-control" required>
+                        <option value="">-- Select Department --</option>
+                        @foreach($departments as $dep)
+                            <option value="{{ $dep->name }}" {{ (old('department', $student->department) == $dep->name) ? 'selected' : '' }}>{{ $dep->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <button class="btn btn-primary">Save Changes</button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\StudentService;
 use App\DTOs\StudentDTO;
+use App\Models\Department;
 
 class StudentController extends Controller
 {
@@ -23,7 +24,8 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('students.create');
+        $departments = Department::all();
+        return view('students.create', compact('departments'));
     }
 
     public function store(Request $request)
@@ -43,7 +45,8 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = $this->service->find($id);
-        return view('students.edit', compact('student'));
+        $departments = Department::all();
+        return view('students.edit', compact('student', 'departments'));
     }
 
     public function update(Request $request, $id)
