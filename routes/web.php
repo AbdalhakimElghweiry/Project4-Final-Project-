@@ -12,6 +12,7 @@ use App\Http\Controllers\StudentController as FrontStudentController;
 use App\Http\Controllers\ProfessorController as FrontProfessorController;
 use App\Http\Controllers\EnrollmentController as FrontEnrollmentController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\CourseController as FrontCourseController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -86,3 +87,6 @@ Route::resource('professors', FrontProfessorController::class);
 
 // Student 4 - Enrollments (front) - plural route
 Route::resource('enrollments', FrontEnrollmentController::class);
+
+// Student 3 - Courses CRUD (plural)
+Route::resource('courses', FrontCourseController::class);
