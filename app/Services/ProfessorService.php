@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Professor;
 use App\DTOs\ProfessorDTO;
+use Illuminate\Support\Facades\Hash;
 
 class ProfessorService
 {
@@ -19,13 +20,25 @@ class ProfessorService
 
     public function create(ProfessorDTO $dto)
     {
-        return Professor::create($dto->toArray());
+        $data = $dto->toArray();
+        if (!empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            $data['password'] = Hash::make(bin2hex(random_bytes(6)));
+        }
+        return Professor::create($data);
     }
 
     public function update($id, ProfessorDTO $dto)
     {
         $prof = $this->find($id);
-        $prof->update($dto->toArray());
+        $data = $dto->toArray();
+        if (!empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            unset($data['password']);
+        }
+        $prof->update($data);
         return $prof;
     }
 

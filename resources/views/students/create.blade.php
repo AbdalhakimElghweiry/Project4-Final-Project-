@@ -27,17 +27,31 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Student No (stNo)</label>
+                    <input type="text" name="stNo" class="form-control" value="{{ old('stNo') }}">
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Department</label>
-                    <select name="department" class="form-control" required>
-                        <option value="">-- Select Department --</option>
-                        @foreach($departments as $dep)
-                            <option value="{{ $dep->name }}" {{ old('department') == $dep->name ? 'selected' : '' }}>{{ $dep->name }}</option>
-                        @endforeach
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Average (avg)</label>
+                    <input type="number" step="0.01" name="avg" class="form-control" value="{{ old('avg', 0) }}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <select name="status" class="form-control" required>
+                        <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
+                        <option value="notActive" {{ old('status') == 'notActive' ? 'selected' : '' }}>Not Active</option>
+                        <option value="dismissed" {{ old('status') == 'dismissed' ? 'selected' : '' }}>Dismissed</option>
                     </select>
                 </div>
 

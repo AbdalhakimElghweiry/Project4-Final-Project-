@@ -21,7 +21,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Department</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -31,7 +30,6 @@
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
-                            <td>{{ $student->department ?? '-' }}</td>
                             <td>
                                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-secondary">Edit</a>
 

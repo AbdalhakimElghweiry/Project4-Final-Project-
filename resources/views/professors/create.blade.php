@@ -27,6 +27,16 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">Department</label>
                     <select name="depId" class="form-control" required>
                         <option value="">-- Select Department --</option>

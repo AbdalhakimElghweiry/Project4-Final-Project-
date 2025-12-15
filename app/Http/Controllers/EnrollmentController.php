@@ -27,7 +27,8 @@ class EnrollmentController extends Controller
     {
         $students = Student::all();
         $courses = Course::all();
-        return view('enrollments.create', compact('students', 'courses'));
+        $professors = \App\Models\Professor::all();
+        return view('enrollments.create', compact('students', 'courses', 'professors'));
     }
 
     public function store(Request $request)
@@ -35,6 +36,7 @@ class EnrollmentController extends Controller
         $data = $request->validate([
             'studentId' => 'required|exists:students,id',
             'courseId' => 'required|exists:courses,id',
+            'professorId' => 'required|exists:professors,id',
             'mark' => 'nullable|numeric|min:0|max:100',
         ]);
 
@@ -49,7 +51,8 @@ class EnrollmentController extends Controller
         $enrollment = $this->service->find($id);
         $students = Student::all();
         $courses = Course::all();
-        return view('enrollments.edit', compact('enrollment', 'students', 'courses'));
+        $professors = \App\Models\Professor::all();
+        return view('enrollments.edit', compact('enrollment', 'students', 'courses', 'professors'));
     }
 
     public function update(Request $request, $id)
@@ -57,6 +60,7 @@ class EnrollmentController extends Controller
         $data = $request->validate([
             'studentId' => 'required|exists:students,id',
             'courseId' => 'required|exists:courses,id',
+            'professorId' => 'required|exists:professors,id',
             'mark' => 'nullable|numeric|min:0|max:100',
         ]);
 

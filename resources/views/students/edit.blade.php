@@ -28,17 +28,31 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Student No (stNo)</label>
+                    <input type="text" name="stNo" class="form-control" value="{{ old('stNo', $student->stNo) }}">
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">Email</label>
                     <input type="email" name="email" class="form-control" value="{{ old('email', $student->email) }}" required>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Department</label>
-                    <select name="department" class="form-control" required>
-                        <option value="">-- Select Department --</option>
-                        @foreach($departments as $dep)
-                            <option value="{{ $dep->name }}" {{ (old('department', $student->department) == $dep->name) ? 'selected' : '' }}>{{ $dep->name }}</option>
-                        @endforeach
+                    <label class="form-label">Password (leave blank to keep current)</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Average (avg)</label>
+                    <input type="number" step="0.01" name="avg" class="form-control" value="{{ old('avg', $student->avg ?? 0) }}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <select name="status" class="form-control" required>
+                        <option value="active" {{ (old('status', $student->status) == 'active') ? 'selected' : '' }}>Active</option>
+                        <option value="notActive" {{ (old('status', $student->status) == 'notActive') ? 'selected' : '' }}>Not Active</option>
+                        <option value="dismissed" {{ (old('status', $student->status) == 'dismissed') ? 'selected' : '' }}>Dismissed</option>
                     </select>
                 </div>
 

@@ -42,6 +42,16 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Professor</label>
+                    <select name="professorId" class="form-control" required>
+                        <option value="">-- Select Professor --</option>
+                        @foreach($professors as $p)
+                            <option value="{{ $p->id }}" {{ old('professorId') == $p->id ? 'selected' : '' }}>{{ $p->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">Grade (optional)</label>
                     <input type="number" step="0.01" name="mark" class="form-control" value="{{ old('mark') }}">
                 </div>

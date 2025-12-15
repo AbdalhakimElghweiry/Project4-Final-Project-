@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\StudentService;
 use App\DTOs\StudentDTO;
-use App\Models\Department;
 
 class StudentController extends Controller
 {
@@ -24,16 +23,18 @@ class StudentController extends Controller
 
     public function create()
     {
-        $departments = Department::all();
-        return view('students.create', compact('departments'));
+        return view('students.create');
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
+            'stNo' => 'nullable|string|unique:students,stNo',
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:students,email',
-            'department' => 'required|string|max:255',
+            'password' => 'nullable|string|min:6',
+            'avg' => 'nullable|numeric',
+            'status' => 'required|in:active,notActive,dismissed',
         ]);
 
         $dto = StudentDTO::fromArray($data);
@@ -45,16 +46,19 @@ class StudentController extends Controller
     public function edit($id)
     {
         $student = $this->service->find($id);
-        $departments = Department::all();
-        return view('students.edit', compact('student', 'departments'));
+        return view('students.edit', compact('student'));
     }
 
     public function update(Request $request, $id)
     {
         $data = $request->validate([
+            'stNo' => 'nullable|string|unique:students,stNo,' . $id,
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:students,email,' . $id,
+            'password' => 'nullable|string|min:6',
             'department' => 'required|string|max:255',
+            'avg' => 'nullable|numeric',
+            'status' => 'required|in:active,notActive,dismissed',
         ]);
 
         $dto = StudentDTO::fromArray($data);
