@@ -30,7 +30,7 @@
                         <tr>
                             <td>{{ $en->id }}</td>
                             <td>{{ $en->student->name ?? '-' }}</td>
-                            <td>{{ $en->course->title ?? '-' }}</td>
+                            <td>{{ $en->course->name ?? '-' }}</td>
                             <td>{{ $en->mark ?? '-' }}</td>
                             <td>
                                 <a href="{{ route('enrollment.edit', $en->id) }}" class="btn btn-sm btn-secondary">Edit</a>

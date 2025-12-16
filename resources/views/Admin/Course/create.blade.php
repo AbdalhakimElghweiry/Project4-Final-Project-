@@ -23,12 +23,17 @@
 
                 <div class="mb-3">
                     <label class="form-label">Course Name</label>
-                    <input type="text" name="course_name" class="form-control" value="{{ old('course_name') }}" required>
+                    <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Course code</label>
-                    <input type="text" name="course_code" class="form-control" value="{{ old('course_code') }}" required>
+                    <label class="form-label">Course Code</label>
+                    <input type="text" name="symbol" class="form-control" value="{{ old('symbol') }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Unit</label>
+                    <input type="number" step="0.5" name="unit" class="form-control" value="{{ old('unit') }}" required>
                 </div>
 
                 <button class="btn btn-primary">Create</button>

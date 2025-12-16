@@ -21,6 +21,7 @@
                         <th>ID</th>
                         <th>Course Name</th>
                         <th>Course Code</th>
+                        <th>Unit</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@
                             <td>{{ $course->id }}</td>
                             <td>{{ $course->name }}</td>
                             <td>{{ $course->symbol }}</td>
+                            <td>{{ $course->unit }}</td>
                             <td>
                                 <a href="{{ route('course.edit', $course->id) }}" class="btn btn-sm btn-secondary">Edit</a>
 
