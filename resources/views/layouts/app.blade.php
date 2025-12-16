@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') | University Portal</title>
 
     <!-- Bootstrap 5 -->
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet"
-    >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -21,12 +19,7 @@
                 University Portal
             </a>
 
-            <button 
-                class="navbar-toggler" 
-                type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#navbarNav"
-            >
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -34,79 +27,31 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a 
-                            class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" 
-                            href="{{ route('home.index') }}"
-                        >
+                        <a class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}"
+                            href="{{ route('home.index') }}">
                             Home
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('department.*') ? 'active' : '' }}"
-                            href="{{ route('department.index') }}"
-                        >
-                            Departments
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('students.*') ? 'active' : '' }}"
-                            href="{{ route('student.index') }}"
-                        >
-                            Students
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('professors.*') ? 'active' : '' }}"
-                            href="{{ route('professor.index') }}"
-                        >
-                            Professors
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('enrollments.*') ? 'active' : '' }}"
-                            href="{{ route('enrollment.index') }}"
-                        >
-                            Enrollments
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('courses.*') ? 'active' : '' }}"
-                            href="{{ route('course.index') }}"
-                        >
-                            Courses
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" 
-                            href="{{ route('home.about') }}"
-                        >
+                        <a class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}"
+                            href="{{ route('home.about') }}">
                             About
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a 
-                            class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}" 
-                            href="{{ route('home.contact') }}"
-                        >
+                        <a class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}"
+                            href="{{ route('home.contact') }}">
                             Contact
                         </a>
                     </li>
 
                 </ul>
             </div>
+
+            <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Admin
+                Login</button>
         </div>
     </nav>
 
@@ -124,10 +69,42 @@
         </div>
     </footer>
 
+    <!-- Admin Login Modal -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="adminLoginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
     </script>
 
+    <script>
+        window.dashboardUrl = '{{ route("dashboard") }}';
+    </script>
+
+    <script src="{{ asset('js/admin.js') }}"></script>
+
 </body>
+
 </html>

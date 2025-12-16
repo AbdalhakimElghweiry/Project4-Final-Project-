@@ -14,117 +14,64 @@
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('home.index') }}">
-                University Portal
-            </a>
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar bg-primary text-white p-3" style="width: 250px; height: 100vh; position: fixed; overflow-y: auto;">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link text-white {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ request()->routeIs('department.*') ? 'active' : '' }}" href="{{ route('department.index') }}">
+                    Departments
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ request()->routeIs('student.*') ? 'active' : '' }}" href="{{ route('student.index') }}">
+                    Students
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ request()->routeIs('professor.*') ? 'active' : '' }}" href="{{ route('professor.index') }}">
+                    Professors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ request()->routeIs('enrollment.*') ? 'active' : '' }}" href="{{ route('enrollment.index') }}">
+                    Enrollments
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ request()->routeIs('course.*') ? 'active' : '' }}" href="{{ route('course.index') }}">
+                    Courses
+                </a>
+            </li>
+            <li class="nav-item mt-auto">
+                <a class="nav-link text-danger" href="{{ route('home.index') }}" onclick="return confirm('Are you sure you want to log out?')">
+                    Log out
+                </a>
+            </li>
+        </ul>
+    </div>
 
-            <button 
-                class="navbar-toggler" 
-                type="button" 
-                data-bs-toggle="collapse" 
-                data-bs-target="#navbarNav"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1" style="margin-left: 250px;">
+        <main class="py-4">
+            @yield('content')
+        </main>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" 
-                            href="{{ route('home.index') }}"
-                        >
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('department.*') ? 'active' : '' }}"
-                            href="{{ route('department.index') }}"
-                        >
-                            Departments
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('students.*') ? 'active' : '' }}"
-                            href="{{ route('student.index') }}"
-                        >
-                            Students
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('professors.*') ? 'active' : '' }}"
-                            href="{{ route('professor.index') }}"
-                        >
-                            Professors
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('enrollments.*') ? 'active' : '' }}"
-                            href="{{ route('enrollment.index') }}"
-                        >
-                            Enrollments
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a
-                            class="nav-link {{ request()->routeIs('courses.*') ? 'active' : '' }}"
-                            href="{{ route('course.index') }}"
-                        >
-                            Courses
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" 
-                            href="{{ route('home.about') }}"
-                        >
-                            About
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a 
-                            class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}" 
-                            href="{{ route('home.contact') }}"
-                        >
-                            Contact
-                        </a>
-                    </li>
-                    
-                    </li>
-
-                </ul>
+        <!-- Footer -->
+        <footer class="bg-light py-3 mt-5">
+            <div class="container text-center">
+                <small class="text-muted">
+                    © {{ date('Y') }} University Portal — All Rights Reserved.
+                </small>
             </div>
-        </div>
-    </nav>
-
-    <!-- Page Content -->
-    <main class="py-4">
-        @yield('content')
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-light py-3 mt-5">
-        <div class="container text-center">
-            <small class="text-muted">
-                © {{ date('Y') }} University Portal — All Rights Reserved.
-            </small>
-        </div>
-    </footer>
+        </footer>
+    </div>
+</div>
 
     <!-- Bootstrap JS -->
     <script 
