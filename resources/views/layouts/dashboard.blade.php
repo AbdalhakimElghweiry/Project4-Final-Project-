@@ -104,6 +104,8 @@
                             Contact
                         </a>
                     </li>
+                    
+                    </li>
 
                 </ul>
             </div>

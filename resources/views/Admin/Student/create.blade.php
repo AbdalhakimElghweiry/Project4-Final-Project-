@@ -18,7 +18,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('students.store') }}" method="POST">
+            <form action="{{ route('student.store') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
@@ -56,7 +56,7 @@
                 </div>
 
                 <button class="btn btn-primary">Create</button>
-                <a href="{{ route('students.index') }}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('student.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>
     </div>

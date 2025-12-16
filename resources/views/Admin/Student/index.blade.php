@@ -6,7 +6,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
         <h1>Students</h1>
-        <a href="{{ route('students.create') }}" class="btn btn-primary">Add Student</a>
+        <a href="{{ route('student.create') }}" class="btn btn-primary">Add Student</a>
     </div>
 
     @if(session('success'))
@@ -31,9 +31,9 @@
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
                             <td>
-                                <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-secondary">Edit</a>
+                                <a href="{{ route('student.edit', $student->id) }}" class="btn btn-sm btn-secondary">Edit</a>
 
-                                <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this student?');">
+                                <form action="{{ route('student.destroy', $student->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this student?');">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger">Delete</button>

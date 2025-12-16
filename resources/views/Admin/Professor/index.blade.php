@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 
-@section('title','Enrollments')
+@section('title','Professors')
 
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1>Enrollments</h1>
-        <a href="{{ route('enrollments.create') }}" class="btn btn-primary">Add Enrollment</a>
+        <h1>Professors</h1>
+        <a href="{{ route('professor.create') }}" class="btn btn-primary">Add Professor</a>
     </div>
 
     @if(session('success'))
@@ -19,22 +19,20 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Student</th>
-                        <th>Course</th>
-                        <th>Grade</th>
+                        <th>Name</th>
+                        <th>Department</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($enrollments as $en)
+                    @forelse($professors as $prof)
                         <tr>
-                            <td>{{ $en->id }}</td>
-                            <td>{{ $en->student->name ?? '-' }}</td>
-                            <td>{{ $en->course->title ?? '-' }}</td>
-                            <td>{{ $en->mark ?? '-' }}</td>
+                            <td>{{ $prof->id }}</td>
+                            <td>{{ $prof->name }}</td>
+                            <td>{{ $prof->department->name ?? '-' }}</td>
                             <td>
-                                <a href="{{ route('enrollments.edit', $en->id) }}" class="btn btn-sm btn-secondary">Edit</a>
-                                <form action="{{ route('enrollments.destroy', $en->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete?');">
+                                <a href="{{ route('professor.edit', $prof->id) }}" class="btn btn-sm btn-secondary">Edit</a>
+                                <form action="{{ route('professor.destroy', $prof->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete?');">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger">Delete</button>
@@ -42,7 +40,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="5" class="text-center">No enrollments found.</td></tr>
+                        <tr><td colspan="4" class="text-center">No professors found.</td></tr>
                     @endforelse
                 </tbody>
             </table>

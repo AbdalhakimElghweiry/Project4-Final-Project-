@@ -5,7 +5,6 @@
 @section('content')
 <div class="container mt-5">
     <h1 class="mb-4">Contact Us</h1>
-<nav><a href="Draft.blade.php">Draft</a></nav>
     <div class="card p-4 shadow-sm">
 
         <form action="#" method="POST">

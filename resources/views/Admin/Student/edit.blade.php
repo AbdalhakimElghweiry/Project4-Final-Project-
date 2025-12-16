@@ -18,7 +18,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('students.update', $student->id) }}" method="POST">
+            <form action="{{ route('student.update', $student->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -57,7 +57,7 @@
                 </div>
 
                 <button class="btn btn-primary">Save Changes</button>
-                <a href="{{ route('students.index') }}" class="btn btn-secondary">Cancel</a>
+                <a href="{{ route('student.index') }}" class="btn btn-secondary">Cancel</a>
             </form>
         </div>
     </div>

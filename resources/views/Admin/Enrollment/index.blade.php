@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Courses')
+@section('title','Enrollments')
 
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1>Courses</h1>
-        <a href="{{ route('courses.create') }}" class="btn btn-primary">Add Course</a>
+        <h1>Enrollments</h1>
+        <a href="{{ route('enrollment.create') }}" class="btn btn-primary">Add Enrollment</a>
     </div>
 
     @if(session('success'))
@@ -15,25 +15,26 @@
 
     <div class="card">
         <div class="card-body p-0">
-            <table class="table table-striped mb-0">
+            <table class="table mb-0">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Course Name</th>
-                        <th>Course Code</th>
+                        <th>Student</th>
+                        <th>Course</th>
+                        <th>Grade</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($courses as $course)
+                    @forelse($enrollments as $en)
                         <tr>
-                            <td>{{ $course->id }}</td>
-                            <td>{{ $course->name }}</td>
-                            <td>{{ $course->symbol }}</td>
+                            <td>{{ $en->id }}</td>
+                            <td>{{ $en->student->name ?? '-' }}</td>
+                            <td>{{ $en->course->title ?? '-' }}</td>
+                            <td>{{ $en->mark ?? '-' }}</td>
                             <td>
-                                <a href="{{ route('courses.edit', $course->id) }}" class="btn btn-sm btn-secondary">Edit</a>
-
-                                <form action="{{ route('courses.destroy', $course->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this course?');">
+                                <a href="{{ route('enrollment.edit', $en->id) }}" class="btn btn-sm btn-secondary">Edit</a>
+                                <form action="{{ route('enrollment.destroy', $en->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete?');">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger">Delete</button>
@@ -41,9 +42,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr>
-                            <td colspan="4" class="text-center">No courses found.</td>
-                        </tr>
+                        <tr><td colspan="5" class="text-center">No enrollments found.</td></tr>
                     @endforelse
                 </tbody>
             </table>
