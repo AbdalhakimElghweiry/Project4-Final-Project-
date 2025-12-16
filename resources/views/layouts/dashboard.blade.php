@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title') | University Portal</title>
+    <title>@yield('title') | University Portal Admin Dashboard</title>
 
     <!-- Bootstrap 5 -->
     <link 
@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.index') }}">
-               University Admin Dashboard
+                University Portal
             </a>
 
             <button 
@@ -33,6 +33,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
 
+                    <li class="nav-item">
+                        <a 
+                            class="nav-link {{ request()->routeIs('home.index') ? 'active' : '' }}" 
+                            href="{{ route('home.index') }}"
+                        >
+                            Home
+                        </a>
+                    </li>
 
                     <li class="nav-item">
                         <a
@@ -46,7 +54,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->routeIs('students.*') ? 'active' : '' }}"
-                            href="{{ route('students.index') }}"
+                            href="{{ route('student.index') }}"
                         >
                             Students
                         </a>
@@ -55,7 +63,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->routeIs('professors.*') ? 'active' : '' }}"
-                            href="{{ route('professors.index') }}"
+                            href="{{ route('professor.index') }}"
                         >
                             Professors
                         </a>
@@ -64,9 +72,36 @@
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->routeIs('enrollments.*') ? 'active' : '' }}"
-                            href="{{ route('enrollments.index') }}"
+                            href="{{ route('enrollment.index') }}"
                         >
                             Enrollments
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link {{ request()->routeIs('courses.*') ? 'active' : '' }}"
+                            href="{{ route('course.index') }}"
+                        >
+                            Courses
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a 
+                            class="nav-link {{ request()->routeIs('home.about') ? 'active' : '' }}" 
+                            href="{{ route('home.about') }}"
+                        >
+                            About
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a 
+                            class="nav-link {{ request()->routeIs('home.contact') ? 'active' : '' }}" 
+                            href="{{ route('home.contact') }}"
+                        >
+                            Contact
                         </a>
                     </li>
 
@@ -84,7 +119,7 @@
     <footer class="bg-light py-3 mt-5">
         <div class="container text-center">
             <small class="text-muted">
-                © {{ date('2025 / 2026') }} University Portal — All Rights Reserved.
+                © {{ date('Y') }} University Portal — All Rights Reserved.
             </small>
         </div>
     </footer>

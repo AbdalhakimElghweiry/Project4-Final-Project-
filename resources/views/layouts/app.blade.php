@@ -54,7 +54,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->routeIs('students.*') ? 'active' : '' }}"
-                            href="{{ route('students.index') }}"
+                            href="{{ route('student.index') }}"
                         >
                             Students
                         </a>
@@ -63,7 +63,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->routeIs('professors.*') ? 'active' : '' }}"
-                            href="{{ route('professors.index') }}"
+                            href="{{ route('professor.index') }}"
                         >
                             Professors
                         </a>
@@ -72,7 +72,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->routeIs('enrollments.*') ? 'active' : '' }}"
-                            href="{{ route('enrollments.index') }}"
+                            href="{{ route('enrollment.index') }}"
                         >
                             Enrollments
                         </a>
@@ -81,7 +81,7 @@
                     <li class="nav-item">
                         <a
                             class="nav-link {{ request()->routeIs('courses.*') ? 'active' : '' }}"
-                            href="{{ route('courses.index') }}"
+                            href="{{ route('course.index') }}"
                         >
                             Courses
                         </a>

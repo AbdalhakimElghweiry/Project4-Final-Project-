@@ -27,7 +27,7 @@
             <x-card class="text-center">
                 <h3>Students</h3>
                 <p>Manage student records and information.</p>
-                <x-button variant="primary" href="{{ route('students.index') }}">View Students</x-button>
+                <x-button variant="primary" href="{{ route('student.index') }}">View Students</x-button>
             </x-card>
         </div>
     </div>
