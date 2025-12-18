@@ -50,8 +50,7 @@
                 </ul>
             </div>
 
-            <button class="btn btn-outline-light ms-3" data-bs-toggle="modal" data-bs-target="#adminLoginModal">Admin
-                Login</button>
+            <a href="{{ route('admin.login') }}" class="btn btn-outline-light ms-3 {{ request()->routeIs('admin.login') ? 'active' : '' }}">Admin Login</a>
         </div>
     </nav>
 
@@ -69,41 +68,11 @@
         </div>
     </footer>
 
-    <!-- Admin Login Modal -->
-    <div class="modal fade" id="adminLoginModal" tabindex="-1" aria-labelledby="adminLoginModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="adminLoginModalLabel">Admin Login</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="adminLoginForm">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Admin login moved to its own page at /adminLogin -->
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
     </script>
-
-    <script>
-        window.dashboardUrl = '{{ route("dashboard") }}';
-    </script>
-
-    <script src="{{ asset('js/admin.js') }}"></script>
 
 </body>
 

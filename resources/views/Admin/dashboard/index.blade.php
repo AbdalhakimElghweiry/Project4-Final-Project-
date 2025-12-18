@@ -54,7 +54,19 @@
             <div class="card text-white bg-secondary mb-3">
                 <div class="card-header">Departments</div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ $departments ?? $departmentsCount ?? 0 }}</h5>
+                    @php
+                        $deptCount = 0;
+                        if (isset($departments)) {
+                            if (is_array($departments) || $departments instanceof \Countable) {
+                                $deptCount = count($departments);
+                            } elseif (is_numeric($departments)) {
+                                $deptCount = $departments;
+                            }
+                        } elseif (isset($departmentsCount)) {
+                            $deptCount = $departmentsCount;
+                        }
+                    @endphp
+                    <h5 class="card-title">{{ $deptCount }}</h5>
                     <p class="card-text">Total departments</p>
                 </div>
             </div>
