@@ -48,4 +48,27 @@
         </div>
     </div>
 </div>
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-secondary mb-3">
+                <div class="card-header">Departments</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ $departments ?? $departmentsCount ?? 0 }}</h5>
+                    <p class="card-text">Total departments</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card mb-3">
+                <div class="card-header">Overview</div>
+                <div class="card-body">
+                    <canvas id="overviewChart" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
+
