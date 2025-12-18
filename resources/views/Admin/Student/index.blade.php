@@ -21,6 +21,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -30,6 +31,7 @@
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
+                            <td>{{ $student->status ?? 'N/A' }}</td>
                             <td>
                                 <a href="{{ route('student.edit', $student->id) }}" class="btn btn-sm btn-secondary">Edit</a>
 
