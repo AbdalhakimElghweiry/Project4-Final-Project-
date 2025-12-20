@@ -13,7 +13,7 @@
 <body class="d-flex flex-column min-vh-100">
 
     <!-- Top navbar with hamburger for mobile -->
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-dark admin-navbar">
         <div class="container-fluid">
             <button class="btn btn-outline-light d-md-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#adminSidebar" aria-controls="adminSidebar">
@@ -27,7 +27,7 @@
 
     <div class="d-flex flex-grow-1">
         <!-- Sidebar (desktop) -->
-        <div class="sidebar bg-primary text-white p-3 d-none d-md-block"
+        <div class="sidebar text-white p-3 d-none d-md-block"
             style="width: 250px; height: 100vh; position: fixed; overflow-y: auto;">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -94,24 +94,24 @@
 
     <!-- Offcanvas sidebar for mobile -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="adminSidebar" aria-labelledby="adminSidebarLabel">
-        <div class="offcanvas-header bg-primary text-white">
+        <div class="offcanvas-header text-white">
             <h5 class="offcanvas-title" id="adminSidebarLabel">Menu</h5>
             <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
         <div class="offcanvas-body p-0">
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action bg-primary text-white"
+                <a class="list-group-item list-group-item-action bg-transparent text-white"
                     href="{{ route('dashboard') }}">Dashboard</a>
-                <a class="list-group-item list-group-item-action bg-primary text-white"
+                <a class="list-group-item list-group-item-action bg-transparent text-white"
                     href="{{ route('department.index') }}">Departments</a>
-                <a class="list-group-item list-group-item-action bg-primary text-white"
+                <a class="list-group-item list-group-item-action bg-transparent text-white"
                     href="{{ route('student.index') }}">Students</a>
-                <a class="list-group-item list-group-item-action bg-primary text-white"
+                <a class="list-group-item list-group-item-action bg-transparent text-white"
                     href="{{ route('professor.index') }}">Professors</a>
-                <a class="list-group-item list-group-item-action bg-primary text-white"
+                <a class="list-group-item list-group-item-action bg-transparent text-white"
                     href="{{ route('enrollment.index') }}">Enrollments</a>
-                <a class="list-group-item list-group-item-action bg-primary text-white"
+                <a class="list-group-item list-group-item-action bg-transparent text-white"
                     href="{{ route('course.index') }}">Courses</a>
                 <a class="list-group-item list-group-item-action list-group-item-danger"
                     href="{{ route('home.index') }}" onclick="return confirm('Are you sure you want to log out?')">Log

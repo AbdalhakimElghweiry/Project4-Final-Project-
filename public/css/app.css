@@ -1,0 +1,72 @@
+/* Public Home Pages - Academic & Welcoming Palette */
+:root {
+    /* Primary Color: Deep Academic Blue */
+    --bs-primary: #1E3A8A; 
+    --bs-primary-rgb: 30, 58, 138;
+    
+    /* Secondary Color: Soft Indigo Blue */
+    --bs-secondary: #3B82F6;
+    --bs-secondary-rgb: 59, 130, 246;
+    
+    /* Accent / Highlight: Gold / Amber */
+    --bs-warning: #F59E0B;
+    --bs-warning-rgb: 245, 158, 11;
+    
+    /* Page Background: Light Off-White */
+    --bs-body-bg: #F8FAFC;
+    
+    /* Primary Text: Dark Slate */
+    --bs-body-color: #1F2933;
+    
+    /* Secondary Text: Cool Gray */
+    --bs-secondary-color: #475569;
+}
+
+body {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+/* Override Bootstrap Primary */
+.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+.text-primary {
+    color: var(--bs-primary) !important;
+}
+
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+    background-color: #172e6e; /* Darker shade of primary */
+    border-color: #152a65;
+}
+
+.btn-outline-primary {
+    color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--bs-primary);
+    color: #fff;
+}
+
+/* NavBar specific */
+.navbar-dark.bg-primary {
+    background-color: var(--bs-primary) !important;
+}
+
+/* Footer overrides if needed */
+footer.bg-light {
+    background-color: #ffffff !important; /* Keep footer clean white or slightly off-white if preferred */
+    border-top: 1px solid #e2e8f0;
+}
+
+.text-muted {
+    color: var(--bs-secondary-color) !important;
+}

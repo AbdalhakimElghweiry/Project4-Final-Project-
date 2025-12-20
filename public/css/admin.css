@@ -1,3 +1,89 @@
+/* Admin Dashboard Palette - Neutral & Focused */
+:root {
+    /* Main Background: Pure White */
+    --admin-bg: #FFFFFF;
+
+    /* Sidebar / Navigation: Dark Charcoal */
+    --admin-sidebar-bg: #111827;
+    --admin-sidebar-text: #FFFFFF;
+
+    /* Primary Action: Strong Blue */
+    --bs-primary: #2563EB;
+    --bs-primary-rgb: 37, 99, 235;
+
+    /* Success: Green */
+    --bs-success: #16A34A;
+    --bs-success-rgb: 22, 163, 74;
+
+    /* Warning / Alert: Amber */
+    --bs-warning: #F59E0B;
+    --bs-warning-rgb: 245, 158, 11;
+
+    /* Danger / Delete: Red */
+    --bs-danger: #DC2626;
+    --bs-danger-rgb: 220, 38, 38;
+
+    /* Primary Text: Neutral Gray */
+    --bs-body-color: #374151;
+
+    /* Borders: Light Gray */
+    --bs-border-color: #E5E7EB;
+}
+
+body {
+    background-color: #F3F4F6;
+    /* Slight off-white for body to distinguish from white content cards if needed, or keeping Pure White as requested for Main Background */
+    color: var(--bs-body-color);
+}
+
+/* Ensure Main Background defined in request is used where appropriate */
+.main-content {
+    background-color: var(--admin-bg);
+}
+
+/* Sidebar & Navbar Overrides */
+.admin-navbar,
+.sidebar,
+.offcanvas-header,
+.offcanvas {
+    background-color: var(--admin-sidebar-bg) !important;
+    color: var(--admin-sidebar-text) !important;
+}
+
+.sidebar .nav-link {
+    color: #9CA3AF;
+    /* Light gray for inactive */
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+    color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .text-danger {
+    color: #EF4444 !important;
+    /* Lighter red for dark background visibility */
+}
+
+/* Button Overrides */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    border-color: #1e40af;
+}
+
+/* Borders */
+.border,
+.table th,
+.table td {
+    border-color: var(--bs-border-color) !important;
+}
+
 /* Dashboard Main Content Offset */
 @media (min-width: 768px) {
     .main-content {
