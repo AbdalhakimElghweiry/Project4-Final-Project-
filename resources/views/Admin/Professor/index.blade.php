@@ -31,6 +31,7 @@
                             <td>{{ $prof->name }}</td>
                             <td>{{ $prof->department->name ?? '-' }}</td>
                             <td>
+                                <a href="{{ route('professor.show', $prof->id) }}" class="btn btn-sm btn-info text-white">Show Details</a>
                                 <a href="{{ route('professor.edit', $prof->id) }}" class="btn btn-sm btn-secondary">Edit</a>
                                 <form action="{{ route('professor.destroy', $prof->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete?');">
                                     @csrf

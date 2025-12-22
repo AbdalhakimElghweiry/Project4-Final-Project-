@@ -33,6 +33,7 @@
                             <td>{{ $student->email }}</td>
                             <td>{{ $student->status ?? 'N/A' }}</td>
                             <td>
+                                <a href="{{ route('student.show', $student->id) }}" class="btn btn-sm btn-info text-white">Show Details</a>
                                 <a href="{{ route('student.edit', $student->id) }}" class="btn btn-sm btn-secondary">Edit</a>
 
                                 <form action="{{ route('student.destroy', $student->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this student?');">

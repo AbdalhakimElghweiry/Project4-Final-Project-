@@ -33,6 +33,7 @@
                             <td>{{ $course->symbol }}</td>
                             <td>{{ $course->unit }}</td>
                             <td>
+                                <a href="{{ route('course.show', $course->id) }}" class="btn btn-sm btn-info text-white">Show Details</a>
                                 <a href="{{ route('course.edit', $course->id) }}" class="btn btn-sm btn-secondary">Edit</a>
 
                                 <form action="{{ route('course.destroy', $course->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this course?');">

@@ -33,6 +33,7 @@
                             <td>{{ $en->course->name ?? '-' }}</td>
                             <td>{{ $en->mark ?? '-' }}</td>
                             <td>
+                                <a href="{{ route('enrollment.show', $en->id) }}" class="btn btn-sm btn-info text-white">Show Details</a>
                                 <a href="{{ route('enrollment.edit', $en->id) }}" class="btn btn-sm btn-secondary">Edit</a>
                                 <form action="{{ route('enrollment.destroy', $en->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete?');">
                                     @csrf

@@ -30,6 +30,7 @@
                         <td>{{ $department->name }}</td>
                         <td>{{ $department->symbol }}</td>
                         <td>
+                            <a href="{{ route('department.show', $department->id) }}" class="btn btn-sm btn-info text-white">Show Details</a>
                             <a href="{{ route('department.edit', $department->id) }}" class="btn btn-sm btn-secondary">Edit</a>
 
                             <form action="{{ route('department.destroy', $department->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this department?');">
