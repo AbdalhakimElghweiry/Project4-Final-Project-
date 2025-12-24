@@ -67,10 +67,13 @@
                     </a>
                 </li>
                 <li class="nav-item mt-auto">
-                    <a class="nav-link text-danger" href="{{ route('home.index') }}"
-                        onclick="return confirm('Are you sure you want to log out?')">
+                    <a class="nav-link text-danger" href="{{ route('admin.logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <span class="label">Log out</span>
                     </a>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>
@@ -114,8 +117,12 @@
                 <a class="list-group-item list-group-item-action bg-transparent text-white"
                     href="{{ route('course.index') }}">Courses</a>
                 <a class="list-group-item list-group-item-action list-group-item-danger"
-                    href="{{ route('home.index') }}" onclick="return confirm('Are you sure you want to log out?')">Log
+                    href="{{ route('admin.logout') }}"
+                    onclick="event.preventDefault(); document.getElementById('logout-form-mobile').submit();">Log
                     out</a>
+                <form id="logout-form-mobile" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>
