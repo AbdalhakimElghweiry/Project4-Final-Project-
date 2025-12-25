@@ -14,4 +14,17 @@ class Student extends Model
         'avg',
         'status'
     ];
+
+    /**
+     * Get the display name for the status
+     */
+    public function getStatusDisplayAttribute()
+    {
+        return match($this->status) {
+            'active' => 'Active',
+            'notActive' => 'Not Active',
+            'dismissed' => 'Dismissed',
+            default => 'Unknown'
+        };
+    }
 }

@@ -31,7 +31,11 @@
                             <td>{{ $student->id }}</td>
                             <td>{{ $student->name }}</td>
                             <td>{{ $student->email }}</td>
-                            <td>{{ $student->status ?? 'N/A' }}</td>
+                            <td>
+                                <span class="status-{{ $student->status ?? 'unknown' }}">
+                                    {{ $student->status_display }}
+                                </span>
+                            </td>
                             <td>
                                 <a href="{{ route('student.show', $student->id) }}" class="btn btn-sm btn-info text-white">Show Details</a>
                                 <a href="{{ route('student.edit', $student->id) }}" class="btn btn-sm btn-secondary">Edit</a>

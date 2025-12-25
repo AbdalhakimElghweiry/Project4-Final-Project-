@@ -70,3 +70,19 @@ footer.bg-light {
 .text-muted {
     color: var(--bs-secondary-color) !important;
 }
+
+/* Student Status Colors */
+.status-active {
+    color: #10B981; /* Green for active */
+    font-weight: bold;
+}
+
+.status-notActive {
+    color: #F59E0B; /* Orange for not active */
+    font-weight: bold;
+}
+
+.status-dismissed {
+    color: #EF4444; /* Red for dismissed */
+    font-weight: bold;
+}

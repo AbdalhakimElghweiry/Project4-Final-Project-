@@ -39,6 +39,7 @@ body {
 /* Ensure Main Background defined in request is used where appropriate */
 .main-content {
     background-color: var(--admin-bg);
+    padding-top: 1rem !important; /* Add space for sticky navbar */
 }
 
 /* Sidebar & Navbar Overrides */
@@ -48,6 +49,14 @@ body {
 .offcanvas {
     background-color: var(--admin-sidebar-bg) !important;
     color: var(--admin-sidebar-text) !important;
+}
+
+/* Sticky Navbar */
+.admin-navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1030 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
 }
 
 .sidebar .nav-link {
@@ -112,4 +121,20 @@ body.sidebar-collapsed .sidebar .nav-link {
     body.sidebar-collapsed .main-content {
         margin-left: 80px;
     }
+}
+
+/* Student Status Colors */
+.status-active {
+    color: #10B981 !important; /* Green for active */
+    font-weight: bold;
+}
+
+.status-notActive {
+    color: #F59E0B !important; /* Orange for not active */
+    font-weight: bold;
+}
+
+.status-dismissed {
+    color: #EF4444 !important; /* Red for dismissed */
+    font-weight: bold;
 }

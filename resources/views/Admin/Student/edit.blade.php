@@ -29,7 +29,7 @@
 
                 <div class="mb-3">
                     <label class="form-label">Student No (stNo)</label>
-                    <input type="text" name="stNo" class="form-control" value="{{ old('stNo', $student->stNo) }}">
+                    <input type="text" name="stNo" class="form-control" value="{{ old('stNo', $student->stNo) }}" required>
                 </div>
 
                 <div class="mb-3">

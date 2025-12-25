@@ -34,7 +34,7 @@
                 <div class="col-md-3 font-weight-bold">Status:</div>
                 <div class="col-md-9">
                     <span class="badge badge-{{ $student->status == 'active' ? 'success' : ($student->status == 'dismissed' ? 'danger' : 'warning') }}">
-                        {{ $student->status }}
+                        {{ $student->status_display }}
                     </span>
                 </div>
             </div>
